@@ -6,42 +6,43 @@ function calculateIdealBodyWeight(
     units: boolean,
     formula: string
 ): number {
+    let idealBodyWeight = 0
     if (units) {
         if (gender === gendersConst.male) {
             if (formula === formulas.devine) {
-                return 50 + 0.9 * (height - 152)
+                idealBodyWeight = 50 + 0.9 * (height - 152)
             }
             if (formula === formulas.robinson) {
-                return 52 + (1.9 * (height - 152)) / 2.54
+                idealBodyWeight = 52 + (1.9 * (height - 152)) / 2.54
             }
         }
         if (gender === gendersConst.female) {
             if (formula === formulas.devine) {
-                return 45.5 + 0.9 * (height - 152)
+                idealBodyWeight = 45.5 + 0.9 * (height - 152)
             }
             if (formula === formulas.robinson) {
-                return 49 + (1.7 * (height - 152)) / 2.54
+                idealBodyWeight = 49 + (1.7 * (height - 152)) / 2.54
             }
         }
     } else {
         if (gender === gendersConst.male) {
             if (formula === formulas.devine) {
-                return 110 + 5 * (height - 60)
+                idealBodyWeight = 110 + 5 * (height - 60)
             }
             if (formula === formulas.robinson) {
-                return 114 + 6 * (height - 60)
+                idealBodyWeight = 114 + 6 * (height - 60)
             }
         }
         if (gender === gendersConst.female) {
             if (formula === formulas.devine) {
-                return 100 + 5 * (height - 60)
+                idealBodyWeight = 100 + 5 * (height - 60)
             }
             if (formula === formulas.robinson) {
-                return 108 + 5 * (height - 60)
+                idealBodyWeight = 108 + 5 * (height - 60)
             }
         }
     }
-    return 0
+    return parseFloat(idealBodyWeight.toFixed(1))
 }
 
 export default calculateIdealBodyWeight
